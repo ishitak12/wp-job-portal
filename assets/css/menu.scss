@@ -1,0 +1,46 @@
+@import "icons";
+
+/* Menu */
+#adminmenu {
+
+	#menu-posts-job_listing {
+
+		.wp-menu-image::before {
+
+			@include jm-icon();
+			content: "\e830";
+		}
+
+		a[href="post-new.php?post_type=job_listing"] {
+			display: none;
+		}
+	}
+
+	#menu-posts-resume {
+
+		.wp-menu-image::before {
+
+			@include jm-icon();
+			content: "\e806";
+		}
+	}
+
+	.wpjm-addon-upsell {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+
+		.wpjm-addon-upsell__badge {
+			text-transform: uppercase;
+			border-radius: 16px;
+			color: inherit;
+			opacity: 0.8;
+			font-size: 8px;
+			margin: 0;
+			padding: 4px 6px;
+			line-height: 8px;
+			border: 1px solid currentColor;
+			font-weight: 600;
+		}
+	}
+}

@@ -1,0 +1,66 @@
+{
+  "name": "wp-job-manager",
+  "version": "2.4.0",
+  "description": "WP Job Manager",
+  "author": "Automattic",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "wordpress-plugin"
+  ],
+  "homepage": "http://wordpress.org/plugins/wp-job-manager/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Automattic/WP-Job-Manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Automattic/WP-Job-Manager/issues"
+  },
+  "engines": {
+    "npm": ">=7.0.0"
+  },
+  "dependencies": {
+    "select2": "4.0.13"
+  },
+  "devDependencies": {
+    "@wordpress/jest-preset-default": "11.1.0",
+    "@wordpress/scripts": "26.1.0",
+    "chalk": "^5.3.0",
+    "dotenv": "^16.3.1",
+    "file-loader": "6.2.0",
+    "grunt": "^1.5.3",
+    "husky": "7.0.4",
+    "inquirer": "^9.2.10",
+    "lint-staged": "12.3.4",
+    "zx": "^7.2.3"
+  },
+  "scripts": {
+    "build": "./scripts/build-plugin.sh",
+    "build:assets": "wp-scripts build",
+    "build:vendor": "cp ./node_modules/select2/dist/css/select2.min.css ./node_modules/select2/dist/js/select2.full.min.js ./assets/lib/select2",
+    "postarchive": "rm -rf $npm_package_name && unzip $npm_package_name.zip -d $npm_package_name && rm $npm_package_name.zip && zip -r $npm_package_name.zip $npm_package_name && rm -rf $npm_package_name",
+    "check-engines": "wp-scripts check-engines",
+    "check-licenses": "wp-scripts check-licenses",
+    "format:js": "wp-scripts format-js",
+    "lint:css": "wp-scripts lint-style assets/css",
+    "lint:js": "wp-scripts lint-js assets/js",
+    "lint:php": "./vendor/bin/phpcs",
+    "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "packages-update": "wp-scripts packages-update",
+    "prepare": "husky install",
+    "start": "wp-scripts start",
+    "test": "npm run test-php",
+    "test-php": "./vendor/bin/phpunit",
+    "i18n:build": "npm run i18n:php",
+    "i18n:php": "wp i18n make-pot --exclude=lib,build,vendor,node_modules --skip-js --headers='{\"Last-Translator\":null,\"Language-Team\":null,\"Report-Msgid-Bugs-To\":\"https://wordpress.org/support/plugin/wp-job-manager/\"}' . languages/wp-job-manager.pot",
+    "release": "./scripts/prepare-release.sh"
+  },
+  "lint-staged": {
+    "*.php": [
+      "php -l -d display_errors=0",
+      "./vendor/bin/phpcs --standard=phpcs.xml.dist --colors --encoding=utf-8 -p"
+    ]
+  },
+  "config": {
+    "wp_org_slug": "wp-job-manager"
+  }
+}

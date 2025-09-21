@@ -1,0 +1,1224 @@
+@import "mixins";
+@import "icons";
+
+.job-manager-settings-wrap {
+
+	min-height: calc(100vh - 65px);
+	margin: 0px 40px 0 20px;
+
+	.job-manager-updated {
+		display: block;
+		margin: 1em 0 0;
+	}
+
+	&, .form-table th, .form-wrap label, p.description {
+		color: var(--wpjm-brand-color-text, #3c434a);
+	}
+
+	p.description {
+		margin: 12px 0;
+		font-size: 12px;
+	}
+
+	input.job-alerts-color-picker {
+		width: 30px;
+		height: 30px;
+	}
+}
+
+.job-manager-settings-header-wrap {
+	margin: 0 -40px 20px -40px;
+	padding: 0 40px;
+	background: #fff;
+	position: sticky;
+	top: var(--wp-admin--admin-bar--height, 32px);
+	z-index: 1;
+
+}
+.job-manager-settings-header-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 24px 0;
+	gap: 20px 24px;
+}
+.job-manager-settings-footer {
+	margin-top: 40px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.job-manager-settings-header,
+.job-manager-settings-body {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.job-manager-settings-logo {
+	height: 40px;
+}
+.job-manager-settings-footer-mobile {
+	display: none;
+}
+@media (max-width: 782px) {
+
+	.job-manager-settings-header-wrap {
+		position: static;
+	}
+
+	.job-manager-settings-logo-wrap {
+		width: 40px;
+		overflow: hidden;
+	}
+
+	.job-manager-settings-footer-mobile {
+		margin-top: 20px;
+		margin-bottom: -60px;
+		display: flex;
+		.job-manager-settings-submit {
+			flex: 1;
+		}
+	}
+}
+
+a.wpjm-activate-license-link,
+a.wpjm-activate-license-link:link,
+a.wpjm-activate-license-link:hover,
+a.wpjm-activate-license-link:visited,
+a.wpjm-activate-license-link:active {
+	color: orangered;
+}
+
+.column-promoted_jobs {
+	.jm-promoted__status-promoted {
+		font-weight: bold;
+	}
+
+	.jm-promoted__deactivate {
+		color: #b32d2e;
+	}
+}
+
+.column-stats {
+	a {
+		display: block;
+	}
+}
+
+/** Promote Job Modal **/
+.promote-buttons-group {
+	.button {
+		padding: 5px 16px;
+		margin-right: 18px;
+	}
+	.button-secondary {
+		background: #ffffff;
+	}
+}
+
+.wpjm-dialog:not(.is-dismissible) {
+	.promote-dismiss {
+		display: none;
+	}
+}
+.promote-dismiss {
+	color: #50575e;
+	display: block;
+	font-size: 12px;
+	position: absolute;
+	right: 0;
+	left: 0;
+	text-align: center;
+	bottom: 20px;
+}
+
+.wpjm-dialog {
+	border: 0;
+	border-radius: 8px;
+	form.dialog {
+		display: flex;
+		button.dialog-close {
+			cursor: pointer;
+			margin: 10px 15px auto auto;
+			content: '';
+			background: none;
+			border: 0;
+			font-size: 0;
+			&:after {
+				content: "\2715";
+				font-size: 20px;
+			}
+		}
+	}
+	&::backdrop {
+		background: rgba(0, 0, 0, 0.5);
+	}
+}
+
+/** Deactivate Modal **/
+.deactivate-dialog {
+	h2.deactivate-modal-heading {
+		font-size: 20px;
+		line-height: 28px;
+		margin-top: 0;
+		font-weight: 300;
+	}
+	max-width: 415px;
+	padding: 32px;
+	.deactivate-button {
+		display: block;
+		float: right;
+		button {
+			margin: 0 0 0 10px;
+		}
+	}
+	p {
+		margin: 40px 0;
+	}
+	.promote-buttons-group {
+		display: block;
+		float: right;
+		.button-secondary {
+			border: 0;
+		}
+		button:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+.wpjm-licenses {
+	margin-top: 10px;
+
+	.license-row {
+		padding: 24px;
+		align-items: flex-start;
+		border: solid 1px #e2e0e2;
+		display: flex;
+		background-color: #fff;
+		flex-wrap: wrap;
+		margin-bottom: 20px;
+		position: relative;
+	}
+
+	.plugin-info {
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: 600;
+
+		.plugin-author {
+			font-size: 14px;
+			font-weight: 400;
+		}
+	}
+	.plugin-license {
+		flex: 1;
+		flex-basis: 40%;
+		padding-bottom: 5px;
+	}
+	.plugin-license-icon {
+		width: 44px;
+		height: 44px;
+		margin-right: 14px;
+	}
+	.plugin-license-form {
+		text-align: right;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 10px;
+	}
+	.plugin-license-checkmark {
+		// The resulting color shoudl be #008A20. Computed using https://codepen.io/sosuke/pen/Pjoqqp
+		filter: invert(23%) sepia(74%) saturate(6542%) hue-rotate(143deg) brightness(100%) contrast(101%);
+		vertical-align: middle;
+	}
+	.plugin-license-label {
+		line-height: 36px;
+		font-weight: 600;
+		margin-left: 22px;
+		white-space: nowrap;
+	}
+	.plugin-license-field {
+		height: 36px;
+		margin-left: 25px;
+		width: 100%;
+		max-width: 465px;
+		&--error {
+			border: 1px solid #CC1818;
+		}
+	}
+	.plugin-license-button {
+		margin-left: 30px;
+		height: 36px;
+		width: 100%;
+		max-width: 140px;
+	}
+	.plugin-license-notice {
+		width: 100%;
+		margin: 0 24px 14px 12px;
+		// Apply background colors from gutenberg notices in the HTML for each notice type
+		&.notice-error {
+			background-color: #F4A2A2;
+		}
+		&.notice-warning {
+			background-color: #FEF8EE;
+		}
+		&.notice-success {
+			background-color: #EFF9F1;
+		}
+		&.notice-info {
+			background-color: #FFF;
+		}
+	}
+}
+
+.wpjm-bulk-activate {
+	align-items: center;
+	border: solid 1px #e2e0e2;
+	display: flex;
+	background-color: #fff;
+	min-height: 82px;
+	flex-direction: column;
+	padding: 10px 0;
+
+	&--title {
+		font-weight: bold;
+		font-size: 16px;
+		line-height: 24px;
+	}
+
+	&--description {
+		line-height: 20px;
+		font-size: 14px;
+	}
+
+	&--form {
+		text-align: center;
+		width: 100%;
+	}
+
+	&--field {
+		max-width: 500px;
+		width: 100%;
+	}
+
+	&--field-error {
+		border: 1px solid #CC1818 !important;
+	}
+
+	&--field, &--button {
+		height: 40px;
+	}
+
+	&--title, &--description, &--form {
+		margin: 5px;
+	}
+	&--notice {
+		width: calc(100% - 20px);
+		box-sizing: border-box;
+		// Apply background colors from gutenberg notices in the HTML for each notice type
+		&.notice-error {
+			background-color: #F4A2A2;
+		}
+		&.notice-warning {
+			background-color: #FEF8EE;
+		}
+		&.notice-success {
+			background-color: #EFF9F1;
+		}
+		&.notice-info {
+			background-color: #FFF;
+		}
+	}
+}
+
+.plugin-license-search {
+	width: 100%;
+	margin: 18px 0;
+	display: flex;
+	justify-content: end;
+	min-height: 40px;
+	.plugin-license-search-field {
+		max-width: 180px;
+		width: 100%;
+		min-height: 40px;
+		margin-right: 3px;
+	}
+	.plugin-license-search-button {
+		min-height: 40px;
+		max-width: 75px;
+		width: 100%;
+	}
+}
+
+.plugin-license-section {
+	font-size: 13px;
+	line-height: 16px;
+	font-weight: 700;
+	margin: 18px 0;
+	&--first {
+		margin-top: -36px;
+	}
+}
+
+.widefat {
+
+	td.column-featured_job,
+	td.column-filled,
+	td.column-job_status {
+		width: 46px;
+		text-align: left;
+		padding-left: 11px;
+	}
+
+	th.column-featured_job,
+	th.column-filled,
+	th.column-job_status {
+		width: 1em;
+
+		span {
+			display: block;
+			width: 1em;
+			height: 1em;
+			line-height: 1em;
+			padding: 1px 0 0 0;
+			overflow: hidden;
+
+			&::before {
+
+				@include jm-icon();
+				content: "\e803";
+			}
+		}
+	}
+
+	th.column-filled {
+
+		span {
+
+			&::before {
+				content: "\e807";
+			}
+		}
+	}
+
+	th.column-job_status {
+
+		span {
+
+			&::before {
+				content: "\e828";
+			}
+		}
+	}
+
+	.column-job_posted {
+
+		strong {
+			display: block;
+			margin-bottom: 0.2em;
+		}
+	}
+
+	td.column-job_status {
+
+		span {
+			position: relative;
+			font-size: 1em;
+			line-height: 1.5em;
+			width: 1em;
+			height: 0;
+			padding: 2em 0 0 0;
+			overflow: hidden;
+			display: block;
+		}
+
+		span::before {
+
+			@include jm-icon();
+			position: absolute;
+			top: 0;
+			left: 0;
+			line-height: 1.5em;
+			vertical-align: middle;
+			color: #999;
+			content: "\e829";
+		}
+
+		.status-trash::before {
+			content: "\e82b";
+			color: #a00;
+		}
+
+		.status-pending::before {
+			content: "\e82c";
+			color: #ffba00;
+		}
+
+		.status-publish::before {
+			content: "\e82f";
+			color: #73a724;
+		}
+
+		.status-expired::before {
+			content: "\e82e";
+			color: #a00;
+		}
+	}
+
+	.column-job_position {
+		.job_manager_admin_badge {
+			display: inline-block;
+			margin-left: 5px;
+			padding: 0 5px;
+			border-radius: 10px;
+			font-size: 12px;
+			font-weight: regular;
+			cursor: help;
+
+			&--promoted {
+				background-color: #1b00e6;
+				color: #fff;
+			}
+
+			&--not_published {
+				background-color: #f00;
+			}
+		}
+	}
+
+	.column-job_listing_type {
+		text-align: left;
+		width: 6em;
+		word-wrap: normal !important;
+
+		.job-type {
+			color: #fff;
+			padding: 4px;
+			font-size: 11px;
+
+			@include border_radius( 2px );
+			display: block;
+			background-color: $part-time;
+			text-align: center;
+		}
+
+		.full-time {
+			background-color: $full-time;
+		}
+
+		.part-time {
+			background-color: $part-time;
+		}
+
+		.temporary {
+			background-color: $temporary;
+		}
+
+		.freelance {
+			background-color: $freelance;
+		}
+
+		.internship {
+			background-color: $internship;
+		}
+	}
+
+	th.column-job_position {
+		width: 20%;
+	}
+
+	td.column-job_position {
+		width: 20%;
+		height: 34px;
+
+		.job_position {
+			position: relative;
+			padding-right: 50px !important;
+		}
+
+		a.job_title {
+			font-weight: bold;
+		}
+
+		img {
+			width: 32px;
+			height: 32px;
+			position: absolute;
+			right: 7px;
+			top: 0;
+
+			@include border_radius( 50% );
+			@include box_shadow( 0, 1px, 0, 1px, rgba( 0,0,0,0.1 ) );
+			border: 1px solid #fff;
+		}
+
+		.company {
+			margin-top: 0.2em;
+			display: block;
+			padding-top: 2px;
+		}
+	}
+
+	.column-job_location {
+		width: 10%;
+	}
+
+	.column-job_actions {
+		text-align: right;
+		width: 128px;
+
+		strong {
+			display: block;
+			margin-bottom: 0.2em;
+		}
+
+		.actions {
+			padding-top: 2px;
+		}
+
+		a.button {
+			display: inline-block;
+			margin: 0 0 2px 4px;
+			cursor: pointer;
+			padding: 0 6px !important;
+			font-size: 1em !important;
+			line-height: 2em !important;
+			overflow: hidden;
+		}
+
+		a.button-icon {
+			width: 2em !important;
+			padding: 0 !important;
+
+			&::before {
+
+				@include jm-icon();
+				float: left;
+				width: 2em !important;
+				line-height: 2em;
+			}
+		}
+
+		.icon-view::before {
+			content: "\e805";
+		}
+
+		.icon-edit::before {
+			content: "\e804";
+		}
+
+		.icon-delete::before {
+			content: "\e82b";
+		}
+
+		.icon-approve::before {
+			content: "\e802";
+		}
+	}
+}
+
+.wp_job_manager_meta_data {
+	zoom: 1;
+
+	&::before,
+	&::after {
+		content: "";
+		display: table;
+	}
+
+	&::after {
+		clear: both;
+	}
+
+	.form-field {
+		width: 50%;
+		line-height: 2em;
+		float: left;
+		box-sizing: border-box;
+		padding: 0 12px 0 0;
+		margin: 0 0 12px;
+		clear: both;
+
+		&:nth-child(even) {
+			float: right;
+			padding: 0 0 0 12px;
+			clear: right;
+		}
+
+		&:nth-last-child(-n+2) {
+			margin-bottom: 0;
+			padding-bottom: 0;
+			border-bottom: 0;
+		}
+
+		label {
+			vertical-align: middle;
+			display: block;
+			font-weight: bold;
+			margin: 0;
+		}
+
+		.tips {
+			cursor: help;
+			float: right;
+			font-weight: normal;
+			color: #999;
+		}
+
+		input {
+			width: 100%;
+			margin: 1px 0;
+			-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+			-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+			box-sizing: border-box;         /* Opera/IE 8+ */
+			vertical-align: middle;
+		}
+
+		input.checkbox,
+		input.radio {
+			width: auto;
+			margin: 4px 2px;
+			display: inline-block;
+		}
+
+		.description {
+			display: block;
+			color: #999;
+		}
+
+		&.form-field-checkbox .description {
+			display: inline;
+		}
+
+		.file_url {
+			display: flex;
+
+			input {
+				width: 75%;
+			}
+		}
+
+		.button {
+			margin-left: 4px;
+		}
+
+		.file_no_url {
+
+			@keyframes flash {
+
+				from {
+					background-color: unset;
+				}
+
+				to {
+					background-color: #dc3232;
+				}
+			}
+
+			@include animation(flash 0.3s linear infinite alternate);
+		}
+	}
+}
+
+/* TipTip CSS - Version 1.2 */
+#tiptip_holder {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99999;
+}
+
+#tiptip_holder.tip_top {
+	padding-bottom: 5px;
+}
+
+#tiptip_holder.tip_bottom {
+	padding-top: 5px;
+}
+
+#tiptip_holder.tip_right {
+	padding-left: 5px;
+}
+
+#tiptip_holder.tip_left {
+	padding-right: 5px;
+}
+
+#tiptip_content {
+	font-size: 11px;
+	color: #fff;
+	padding: 4px 8px;
+	background: #464646;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+	text-align: center;
+
+	code {
+		background: #999;
+		padding: 1px;
+	}
+}
+
+#tiptip_arrow,
+#tiptip_arrow_inner {
+	position: absolute;
+	border-color: transparent;
+	border-style: solid;
+	border-width: 6px;
+	height: 0;
+	width: 0;
+}
+
+#tiptip_holder.tip_top #tiptip_arrow_inner {
+	margin-top: -7px;
+	margin-left: -6px;
+	border-top-color: #464646;
+}
+
+#tiptip_holder.tip_bottom #tiptip_arrow_inner {
+	margin-top: -5px;
+	margin-left: -6px;
+	border-bottom-color: #464646;
+}
+
+#tiptip_holder.tip_right #tiptip_arrow_inner {
+	margin-top: -6px;
+	margin-left: -5px;
+	border-right-color: #464646;
+}
+
+#tiptip_holder.tip_left #tiptip_arrow_inner {
+	margin-top: -6px;
+	margin-left: -7px;
+	border-left-color: #464646;
+}
+
+/* Addons */
+.wp_job_manager_add_ons_wrap {
+	.job-manager-settings-header-wrap {
+		position: static;
+	}
+
+	.products {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+		margin-top: 0;
+		gap: 20px;
+	}
+
+	.product {
+		display: flex;
+		flex-direction: column;
+		padding: 18px;
+		background: #ffffff;
+		border: 1px solid #cccccc;
+		box-sizing: border-box;
+		gap: 18px;
+
+		.add-on-header {
+			display: flex;
+			flex-direction: row;
+			gap: 16px;
+			flex-wrap: wrap;
+
+			img {
+				width: 48px;
+				height: 48px;
+				object-fit: contain;
+				&.wpjm-core-bundle {
+					border-radius: 50%;
+				}
+			}
+			.title {
+				font-size: 16px;
+				font-weight: 600;
+				line-height: 24px;
+			}
+			a {
+				text-decoration: none;
+			}
+			a.button-secondary {
+				align-self: center;
+				text-decoration: none;
+				padding: 8px 12px;
+				line-height: 1.4em;
+				border-radius: 2px;
+				background: #ffffff;
+			}
+		}
+		.add-on-body {
+			p {
+				line-height: 20px;
+				color: #1E1E1E;
+			}
+		}
+		.product-info {
+			flex: 1 1 0;
+			align-self: center;
+			@media screen and (max-width: 550px) {
+				flex: 1 1 calc(100% - 68px);
+			}
+		}
+		.add-on-footer {
+			display: flex;
+			flex-direction: row;
+			margin-top: auto;
+			p {
+				margin: 0;
+			}
+			a {
+				align-self: center;
+				text-decoration: none;
+				margin-left: auto;
+			}
+		}
+	}
+}
+
+.rtl {
+
+	.widefat {
+
+		.column-job_actions {
+
+			a.button-icon {
+
+				&::before {
+					float: right;
+				}
+			}
+		}
+	}
+
+	.wp_job_manager_meta_data {
+
+		p {
+			padding: 0 20% 0 0;
+		}
+
+		label {
+			left: auto;
+			right: 0;
+		}
+	}
+}
+
+/**
+ * Settings
+ */
+
+table.form-table.settings {
+
+	tr {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+		&:last-child,
+		&.no-separator {
+			border-bottom: 0;
+		}
+	}
+}
+
+div.setting-enable-expand {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 15px 10px;
+
+	.sub-settings-expandable {
+		display: none;
+		padding-left: 25px;
+
+		&.expanded {
+			display: block;
+		}
+	}
+}
+
+tr.email-setting-row {
+
+	td {
+		padding: 5px;
+	}
+}
+/**
+ * Extensions page
+ */
+.wp_job_manager_add_ons_wrap {
+	.wpjm-extensions-filter-search {
+		display: flex;
+		margin-top: 18px;
+		.wpjm-extension-search-input {
+			padding: 9px 12px;
+			border-radius: 2px;
+			line-height: 20px;
+			font-size: 13px;
+		}
+		.wpjm-extension-search-button {
+			padding: 5px 12px;
+			background: #ffffff;
+		}
+		.subsubsub {
+			text-align: left;
+			margin: 0;
+			align-self: end;
+			li {
+				margin: 0 0 6px 0;
+				a {
+					padding: 6px 8px;
+					background: #ffffff;
+					border-radius: 2px;
+					color: #3C434A;
+					font-weight: 400;
+					margin-right: 4px;
+					font-size: 13px;
+					&.current {
+						background: #1E1E1E;
+						color: #ffffff;
+					}
+				}
+			}
+		}
+		.extension-search {
+			margin-left: auto;
+			align-self: center;
+			display: flex;
+			gap: 2px;
+		}
+	}
+}
+@media screen and (max-width: 782px) {
+	.wp_job_manager_add_ons_wrap .wpjm-extensions-filter-search {
+		flex-direction: column-reverse;
+		gap: 18px;
+
+		.subsubsub {
+			align-self: start;
+		}
+		.extension-search {
+			margin-right: auto;
+			margin-left: 0;
+		}
+		.wpjm-extension-search-button {
+			padding: 0 15px;
+			margin-bottom: 0;
+		}
+	}
+}
+@media screen and (max-width: 428px ) {
+	.wp_job_manager_add_ons_wrap .wpjm-extensions-filter-search {
+		.extension-search {
+			margin: 0;
+			align-self: auto;
+
+			.wpjm-extension-search-input {
+				flex-basis: 100%;
+				margin-right: 3px;
+			}
+		}
+	}
+}
+
+
+/**
+ * Nav Tabs
+ */
+
+.nav-tab-wrapper, .wrap h2.nav-tab-wrapper {
+	border-bottom: 0;
+	margin: unset;
+	padding: unset;
+	display: flex;
+	gap: 10px 24px;
+	flex-wrap: wrap;
+}
+.nav-tab {
+	border: none;
+	border-bottom: 3px solid transparent;
+	font-weight: 500;
+	background: none;
+	padding: 5px 0;
+	margin: 0;
+	color: #000000;
+	&:hover, &:focus, &:focus:active {
+		background: none;
+	}
+
+	&.nav-tab-active {
+		margin-bottom: unset;
+	}
+}
+
+.nav-tab-wrapper .nav-tab-active, nav .nav-tab-active {
+	border-bottom: 3px solid var(--wpjm-brand-color-primary, #2270B1);
+	box-sizing: border-box;
+	&:hover, &:focus, &:focus:active {
+		border-bottom: 3px solid var(--wpjm-brand-color-primary, #2270B1);
+		box-sizing: border-box;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	h2 {
+		.nav-tab:not(.nav-tab-active) {
+			border-bottom: 3px solid transparent;
+		}
+	}
+	nav .nav-tab:not(.nav-tab-active) {
+		border-bottom: 3px solid transparent;
+	}
+}
+
+/**
+ * Mobile styles
+ */
+@media only screen and (max-width: 782px) {
+
+	.wpjm-licenses {
+
+		.plugin-info {
+			padding: 10px;
+		}
+
+		.plugin-license {
+			padding: 10px;
+		}
+	}
+
+	.widefat {
+
+		.job_position.column-primary {
+			display: table-cell !important;
+		}
+
+		.toggle-row::before {
+			top: 5px;
+		}
+
+		.column-job_actions {
+			text-align: left;
+
+			a.button-icon {
+
+				&::before {
+					float: left;
+				}
+			}
+		}
+	}
+
+	.rtl {
+
+		.widefat {
+
+			.column-job_actions {
+				text-align: right;
+
+				a.button-icon {
+
+					&::before {
+						float: right;
+					}
+				}
+			}
+		}
+	}
+
+	.wp_job_manager_meta_data {
+
+		.form-field {
+			width: 100%;
+			padding: 0;
+
+			&:nth-child(even) {
+				float: none;
+				padding: 0;
+				margin-bottom: 12px;
+				clear: both;
+			}
+
+			&:nth-last-child(-n+2) {
+				float: none;
+				padding: 0;
+				margin-bottom: 12px;
+				clear: both;
+			}
+		}
+	}
+}
+
+/**
+ * Core Add-on Bundle SVG Styles
+ */
+.jm-logo {
+	perspective: 450px;
+	perspective-origin: 50% 50%;
+	position: relative;
+	cursor: pointer;
+	clip-path: circle(50% at 50% 50%);
+	background: #ffef82;
+}
+
+.jm-logo__wrapper.jm-logo__wrapper {
+	gap: calc(var(--happy-sizing-scale) * (16 - 12) + 12px);
+}
+
+.jm-logo__wrapper,
+.jm-logo__wrapper path,
+.jm-logo__wrapper.jm-logo__wrapper a[href]
+{
+	color: #2404EB;
+	fill: currentColor;
+	text-decoration: none !important;
+}
+
+.jm-logo, .jm-logo__inner, .jm-logo__head, .jm-logo__face, .jm-logo__letters {
+	width: 48px;
+	height: 48px;
+}
+
+.jm-logo__inner {
+	clip-path: circle(40px);
+}
+
+.jm-logo__inner, .jm-logo__face, .jm-logo__letters {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.jm-logo__head {
+	transform: scale(1);
+}
+
+.jm-logo__face, .jm-logo__letters {
+	transform-origin: 50% 50% -60px;
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+	transition: all 888ms cubic-bezier(.32, 1.29, .9, .98);
+}
+.jm-logo .jm-logo__face {
+	transform: rotateY(-90deg);
+	animation: jm-logo__face 888ms 1000ms cubic-bezier(.32, 1.29, .9, .98) alternate;
+	animation-iteration-count: 2;
+}
+
+.jm-logo .jm-logo__letters {
+	animation: jm-logo__letters 888ms 1000ms cubic-bezier(.32, 1.29, .9, .98) alternate;
+	animation-iteration-count: 2;
+}
+
+.jm-logo__wrapper:hover .jm-logo__face {
+	transform: rotateY(0deg);
+}
+
+.jm-logo__wrapper:hover .jm-logo__letters {
+	transform: rotateY(90deg);
+}
+
