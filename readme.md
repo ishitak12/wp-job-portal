@@ -1,4 +1,4 @@
-# WordPress Job Portal (Custom Project)
+# Job Portal
 
 A feature-rich **Job Portal Website** built with **WordPress** and the **WP Job Manager plugin**, customized to manage job listings, employer accounts, and candidate applications.
 
